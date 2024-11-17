@@ -14,65 +14,74 @@ const ExpenseList = (): JSX.Element => {
   const removeExpense = useWarikanStore((state) => state.removeExpense);
 
   return (
-    <Card logo="✏️" title="支払い記録">
+    <Card logo="✏️" title="支払い記録" className="w-full max-w-md mx-auto">
       {/* フォーム */}
-      <select
-        className="p-2 border rounded w-full"
-        value={inputExpense.paidBy}
-        onChange={(e) =>
-          updateInputExpense({ ...inputExpense, paidBy: e.target.value })
-        }
-      >
-        <option value="">支払った人</option>
-        {members.map(
-          (member) =>
-            member && (
-              <option key={member} value={member}>
-                {member}
-              </option>
-            )
-        )}
-      </select>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-        <input
-          placeholder="内容"
-          value={inputExpense.description}
+      <div className="space-y-4">
+        <select
+          className="p-2 border rounded w-full text-sm sm:text-base"
+          value={inputExpense.paidBy}
           onChange={(e) =>
-            updateInputExpense({ ...inputExpense, description: e.target.value })
+            updateInputExpense({ ...inputExpense, paidBy: e.target.value })
           }
-          className="h-10 px-2 border rounded"
-        />
-        <input
-          type="number"
-          min={0}
-          placeholder="金額"
-          value={inputExpense.amount || ""}
-          onChange={(e) =>
-            updateInputExpense({
-              ...inputExpense,
-              amount: e.target.valueAsNumber,
-            })
-          }
-          className="h-10 px-2 border rounded"
-        />
+        >
+          <option value="">支払った人</option>
+          {members.map(
+            (member) =>
+              member && (
+                <option key={member} value={member}>
+                  {member}
+                </option>
+              )
+          )}
+        </select>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <input
+            placeholder="内容"
+            value={inputExpense.description}
+            onChange={(e) =>
+              updateInputExpense({
+                ...inputExpense,
+                description: e.target.value,
+              })
+            }
+            className="h-10 px-2 border rounded text-sm sm:text-base"
+          />
+          <input
+            type="number"
+            min={0}
+            placeholder="金額"
+            value={inputExpense.amount || ""}
+            onChange={(e) =>
+              updateInputExpense({
+                ...inputExpense,
+                amount: e.target.valueAsNumber,
+              })
+            }
+            className="h-10 px-2 border rounded text-sm sm:text-base"
+          />
+        </div>
+        <Button onClick={addExpense} className="w-full">
+          記録する
+        </Button>
       </div>
-      <Button onClick={addExpense} className="w-full">
-        記録する
-      </Button>
 
       {/* 支払い一覧 */}
-      <div className="space-y-2">
+      <div className="mt-4 space-y-2">
         {expenses.map((expense) => (
           <div
             key={expense.description}
-            className="flex justify-between items-center p-2 bg-gray-50 rounded"
+            className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-2 bg-gray-50 rounded text-sm sm:text-base"
           >
-            <span>
+            <span className="mb-2 sm:mb-0">
               {expense.paidBy}が{expense.description}で{expense.amount}
               円支払い
             </span>
-            <Button onClick={() => removeExpense(expense.description)}>
-              <Trash2 className="w-4 h-4" />
+            <Button
+              onClick={() => removeExpense(expense.description)}
+              className="w-full sm:w-auto"
+            >
+              <Trash2 className="w-4 h-4 mr-2" />
+              <span className="sm:hidden">削除</span>
             </Button>
           </div>
         ))}

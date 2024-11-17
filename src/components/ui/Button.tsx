@@ -4,17 +4,31 @@ type ButtonProps = {
   onClick: () => void;
   className?: string;
   children?: React.ReactNode;
+  fullWidth?: boolean;
 };
 
-const Button = (props: ButtonProps): JSX.Element => {
-  const { className = "" } = props;
+const Button = ({
+  onClick,
+  className = "",
+  children,
+  fullWidth = false,
+}: ButtonProps): JSX.Element => {
   return (
     <button
-      className={`bg-black hover:bg-gray-700 text-white flex justify-center items-center py-2 px-4 rounded-lg ${className}`}
-      onClick={props.onClick}
+      className={`
+        bg-black hover:bg-gray-700 text-white
+        flex justify-center items-center
+        py-2 px-4 rounded-lg
+        text-sm sm:text-base
+        transition duration-200 ease-in-out
+        whitespace-nowrap overflow-hidden text-ellipsis
+        ${fullWidth ? "w-full" : "w-auto"}
+        ${className}
+      `}
+      onClick={onClick}
       type="button"
     >
-      {props.children}
+      {children}
     </button>
   );
 };
