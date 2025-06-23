@@ -1,6 +1,6 @@
 # Warikan Calculator - シンプル割り勘計算アプリ
 
-[![Deploy on GitHub Pages](https.://img.shields.io/badge/Live%20Demo-nanaism.github.io-green?style=for-the-badge&logo=github)](https://nanaism.github.io/warikan-culculator/)
+[![Deploy on GitHub Pages](https.://img.shields.io/badge/Live%20Demo-nanaism.github.io-green?style=for-the-badge&logo=github)]([https://nanaism.github.io/warikan-culculator/](https://nanaism.github.io/warikan-culculator/))
 
 旅行や飲み会など、複数人での立て替えが発生した際の面倒な割り勘計算を、シンプルかつスマートに解決するウェブアプリケーションです。
 誰が誰にいくら支払えばよいかを瞬時に算出し、精算をスムーズにします。
