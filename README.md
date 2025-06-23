@@ -1,50 +1,19 @@
-# React + TypeScript + Vite
+![FireShot Webpage Capture 025 - 'Vite + React + TS' - nanaism github io](https://github.com/user-attachments/assets/5b7a3fa2-9c05-4df2-9e53-c5df5872695a)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 必須機能
+- メンバー登録：
+- 割り勘を行うメンバーを追加し、表示する。
+- 支払い記録：
+- 立て替えた人、金額、内容を記録・削除する。
+- 精算結果の算出：
+- 最適な精算方法を表示する（例：誰が誰にいくら払うべきか）
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+# ユーザーストーリー
+ - ユーザーがサイトにアクセスすると、メンバーの名前を入力できるフォームがが表示されている。
+ - 追加したメンバーの名前が、全員表示される
+ - ユーザーが支払い記録を追加する際は、支払った人をドロップダウンリストから選択できる
+ - 支払い内容（テキスト）と金額（数値）を入力できる
+ - 必要な情報を入力し、「記録する」ボタンをクリックすると、支払いの記録が一覧で表示される
+ - 支払い記録を削除できる
+ - 最適な精算方法として「誰が誰にいくら払えば良いか」が一覧で表示される
+ - アプリケーションがデプロイされており、誰でもアクセス可能である。
